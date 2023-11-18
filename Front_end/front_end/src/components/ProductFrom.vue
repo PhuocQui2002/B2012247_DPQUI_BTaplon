@@ -42,7 +42,7 @@
         type="text"
         class="form-control"
         id="exampleFormControlInput1"
-        placeholder="VD: Red, Black"
+        placeholder="VD: 10$"
       />
 
       <select

@@ -12,6 +12,7 @@
           <button @click="showDialog(contact)">
             <i class="fa-solid fa-pen-to-square"></i>
           </button>
+          <button @click="deleteContact"><i class="fa-solid fa-trash-can"></i></button>
         </li>
       </ul>
     </div>
@@ -45,6 +46,30 @@ export default {
           alert(e);
         });
     },
+    deleteContact() {
+      axios
+        .delete(`http://localhost:3000/api/contacts/`,{})
+        .then((response) => {
+          alert("Xóa thanh cong");
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    },
+    putContacts() {
+    axios
+      .put(`http://localhost:3000/api/contacts/`, {
+        name: this.changName,
+        email: this.changEmail,
+        passwords: this.changPass,
+      })
+      .then((response) => {
+        alert("Cap nhat thanh cong");
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  },
     showDialog(contact) {
       this.show = !this.show;
       this.contact = contact;
@@ -56,20 +81,7 @@ export default {
   mounted() {
     this.getContacts();
   },
-  putContacts() {
-    axios
-      .put(`http://localhost:3000/api/contacts/`, {
-        name: this.name,
-        email: this.email,
-        passwords: this.passwords,
-      })
-      .then((response) => {
-        alert("Cap nhat thanh cong");
-      })
-      .catch((e) => {
-        alert(e);
-      });
-  },
+  
 };
 // function editUse(users) {
 //   var listCoursesBlock = document.querySelector('#edit');

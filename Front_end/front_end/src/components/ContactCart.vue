@@ -10,22 +10,40 @@
           <div>
             <div class="p-1">
               <strong>Tên:</strong>
-              {{ contact?.name }}<br>
+              {{ contact?.name }}<br />
               <label for="fname">Đổi tên:</label>
-              <input type="text" id="fname" name="fname" placeholder="" /><br /><br />
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder=""
+                v-model="changName"
+              /><br /><br />
             </div>
             <div class="p-1">
               <strong>E-mail:</strong>
               {{ contact?.email }}
-              <br>
+              <br />
               <label for="fname">Đổi email:</label>
-              <input type="text" id="fname" name="fname" placeholder="" /><br /><br />
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder=""
+                v-model="changEmail"
+              /><br /><br />
             </div>
             <div class="p-1">
               <strong>Password:</strong>
-              {{ contact?.passwords }}<br>
+              {{ contact?.passwords }}<br />
               <label for="fname">Đổi password:</label>
-              <input type="text" id="fname" name="fname" placeholder="" /><br /><br />
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder=""
+                v-model="changPass"
+              /><br /><br />
             </div>
             <div class="p-1">
               <strong>Admin&nbsp;</strong>
@@ -43,13 +61,16 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" @click="putContacts">
+            Save changes
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import DSND from "./DSND.vue";
 export default {
   props: {
     contact: { type: Object, required: false },
@@ -59,6 +80,7 @@ export default {
     closeDialog() {
       this.$emit("close");
     },
+    
   },
 };
 </script>
