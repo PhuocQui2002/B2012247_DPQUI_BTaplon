@@ -154,6 +154,9 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
+#form-1{
+  background-color: initial;
+}
 html {
   color: #333;
   font-size: 62.5%;

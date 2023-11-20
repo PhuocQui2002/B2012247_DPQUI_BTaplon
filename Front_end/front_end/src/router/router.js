@@ -11,7 +11,7 @@ const routes = [
     component: Dangky,
   },
   {
-    path: "/login",
+    path: "/",
     name: "dangnhap",
     component: Dangnhap,
   },

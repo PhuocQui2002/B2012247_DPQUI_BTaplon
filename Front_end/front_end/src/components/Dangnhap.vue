@@ -6,6 +6,7 @@
       method="POST"
       class="form"
       id="form-2"
+      
     >
       <h3 class="heading">Đăng nhập</h3>
       <p class="desc">Quản lý khách đặt hàng ❤️❤️❤️</p>
@@ -92,6 +93,9 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+#form-2{
+  background-color: initial;
 }
 html {
   color: #333;

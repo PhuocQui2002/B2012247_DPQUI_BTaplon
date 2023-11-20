@@ -1,13 +1,13 @@
 <template>
   <div style="display: flex">
-    <h3 style="display: flex">Danh sach nguoi dung</h3>
+    <h3 style="display: flex ;  margin-left: 50px;">Danh sach nguoi dung</h3>
     <h3><i class="fa-solid fa-user"></i></h3>
   </div>
   <div>
     <ContactCart :contact="contact" :show="show" @close="closeDialog" />
     <div v-for="contact of contacts" class="mr-auto navbar-nav">
       <ul class="list-group active">
-        <li style="width: 40%" class="list-group-item">
+        <li style="width: 40%;margin-left: 50px;" class="list-group-item" >
           {{ contact.name }}
           <button @click="showDialog(contact)">
             <i class="fa-solid fa-pen-to-square"></i>

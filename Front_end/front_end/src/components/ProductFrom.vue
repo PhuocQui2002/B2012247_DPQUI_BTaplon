@@ -85,7 +85,11 @@
     Submit
   </button>
 </template>
-
+<style scoped>
+label{
+  color: red;
+}
+</style>
 <script>
 import axios from "axios";
 

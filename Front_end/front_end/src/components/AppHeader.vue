@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid" style="background-color: initial;   border-radius: 5px;">
       <button
         class="navbar-toggler"
         type="button"
@@ -18,7 +18,7 @@
         id="navbarSupportedContent"
       >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item" style="margin: 10px;">
+          <li class="nav-item" style="margin: 10px">
             <router-link
               :to="{
                 name: 'home',
@@ -26,7 +26,7 @@
               >Trangchu</router-link
             >
           </li>
-          <li class="nav-item dropdown" style="margin: 10px;">
+          <li class="nav-item dropdown" style="margin: 10px">
             <router-link
               :to="{
                 name: 'them',
@@ -40,7 +40,7 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul> -->
           </li>
-          <li class="nav-item" style="margin: 10px;">
+          <li class="nav-item" style="margin: 10px">
             <router-link
               :to="{
                 name: 'DSND',
@@ -59,7 +59,14 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
-        <button type="button" class="btn btn-outline-primary">Đăng xuất</button>
+        <button type="button" class="btn btn-outline-primary">
+          <router-link
+          :to="{
+            name: 'register',
+          }"
+          >Dang xuat</router-link
+        >
+        </button>
       </div>
     </div>
   </nav>
