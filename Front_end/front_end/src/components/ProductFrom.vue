@@ -59,7 +59,12 @@
 
   <div class="mb-3">
     <label style="display: block" for="formFile" class="form-label">IMG</label>
-    <input class="form-control" type="file" id="formFile" />
+    <input
+      class="form-control"
+      type="file"
+      id="formFile"
+      @change="onFileChange"
+    />
   </div>
   <div class="mb-3">
     <label
@@ -86,7 +91,7 @@
   </button>
 </template>
 <style scoped>
-label{
+label {
   color: red;
 }
 </style>
@@ -99,7 +104,7 @@ export default {
       name_product: "",
       color_product: "",
       price_product: "",
-      img_product: "",
+      img_product: {},
       classify_product: "",
       errors: [],
     };
@@ -112,7 +117,7 @@ export default {
           name_product: this.name_product,
           color_product: this.color_product,
           price_product: this.price_product,
-          img_product: "img.png",
+          img_product: this.img_product,
           classify_product: this.classify_product,
         })
         .then((response) => {
@@ -121,6 +126,11 @@ export default {
         .catch((e) => {
           alert(e);
         });
+    },
+    onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      this.img_product = files[0];
     },
   },
 };

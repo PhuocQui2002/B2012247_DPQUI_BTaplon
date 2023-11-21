@@ -9,8 +9,6 @@
         <div class="modal-body">
           <div>
             <div class="p-1">
-              <strong>Tên:</strong>
-              {{ contact?.name }}<br />
               <label for="fname">Đổi tên:</label>
               <input
                 type="text"
@@ -21,8 +19,6 @@
               /><br /><br />
             </div>
             <div class="p-1">
-              <strong>E-mail:</strong>
-              {{ contact?.email }}
               <br />
               <label for="fname">Đổi email:</label>
               <input
@@ -34,8 +30,6 @@
               /><br /><br />
             </div>
             <div class="p-1">
-              <strong>Password:</strong>
-              {{ contact?.passwords }}<br />
               <label for="fname">Đổi password:</label>
               <input
                 type="text"
@@ -61,7 +55,11 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary" @click="putContacts">
+          <button
+            @click="putContacts(contact?._id)"
+            type="button"
+            class="btn btn-primary"
+          >
             Save changes
           </button>
         </div>
@@ -71,16 +69,52 @@
 </template>
 <script>
 import DSND from "./DSND.vue";
+import axios from "axios";
 export default {
   props: {
     contact: { type: Object, required: false },
     show: false,
   },
+  data: () => {
+    return {
+      changName: "",
+      changEmail: "",
+      changPass: "",
+    };
+  },
   methods: {
     closeDialog() {
       this.$emit("close");
     },
-    
+    putContacts(id) {
+      if (
+        this.changName == null ||
+        this.changEmail == null ||
+        this.changPass == null
+      ) {
+        alert("Vui long nhap day du thong tin");
+      } else {
+        axios
+          .put(`http://localhost:3000/api/contacts/` + id, {
+            name: this.changName,
+            email: this.changEmail,
+            passwords: this.changPass,
+          })
+          .then((response) => {
+            this.$emit("updateContacts");
+          })
+          .catch((e) => {
+            alert(e);
+          });
+      }
+    },
+  },
+  watch: {
+    contact() {
+      this.changName = this.contact?.name;
+      this.changEmail = this.contact?.email;
+      this.changPass = this.contact?.passwords;
+    },
   },
 };
 </script>

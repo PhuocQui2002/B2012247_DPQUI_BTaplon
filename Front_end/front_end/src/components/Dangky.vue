@@ -8,7 +8,7 @@
       id="form-1"
     >
       <h3 class="heading">Thành viên đăng ký</h3>
-      <p class="desc">Quản lý đặt hàng</p>
+      <!-- <p class="desc">Quản lý đặt hàng</p> -->
 
       <div class="spacer"></div>
 
